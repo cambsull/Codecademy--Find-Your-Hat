@@ -136,8 +136,13 @@ class Field {
   static generateField(height, width) {
     let containerArray = [];
     let possibleChar = [fieldCharacter, fieldCharacter, fieldCharacter, hole];
-    const hatPositionHeight = Math.floor(Math.random() * height - 1) + 1; //Prevent from generating on [0][0] where the player starts, and from generating out of bounds.
-    const hatPositionWidth = Math.floor(Math.random() * width - 1) + 1; //Prevent from generating on [0][0] where the player starts, and from generating out of bounds.
+    let hatPositionHeight, hatPositionWidth;
+
+    //Ensure that the hat is not generated on [0][0]
+    do {
+        hatPositionHeight = Math.floor(Math.random() * height);
+        hatPositionWidth = Math.floor(Math.random() * width);
+      } while (hatPositionHeight === 0 && hatPositionWidth === 0);
 
     //Create subarrays filled with the width number of elements each and push the height number of arrays to the containerArray.
     for (let k = 0; k < height; k++) {
