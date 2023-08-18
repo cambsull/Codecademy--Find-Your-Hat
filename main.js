@@ -61,7 +61,6 @@ class Field {
         } else {
           this.playery--;
           this.field[this.playery][this.playerx] = pathCharacter;
-          this.logField();
           break;
         }
       case "down":
@@ -80,7 +79,6 @@ class Field {
         } else {
           this.playery++;
           this.field[this.playery][this.playerx] = pathCharacter;
-          this.logField();
           break;
         }
       case "left":
@@ -98,7 +96,7 @@ class Field {
           break;
         } else {
           this.playerx--;
-          console.log(this.playerx);
+          this.field[this.playery][this.playerx] = pathCharacter;
           break;
         }
       case "right":
@@ -118,7 +116,6 @@ class Field {
           this.playerx++;
           console.log(this.playerx);
           this.field[this.playery][this.playerx] = pathCharacter;
-          this.logField();
           break;
         }
       default:
